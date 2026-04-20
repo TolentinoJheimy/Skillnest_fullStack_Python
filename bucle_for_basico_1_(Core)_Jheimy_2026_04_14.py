@@ -7,9 +7,9 @@ for i in range(251):
 
 for point in range(5, 101):
     if point % 10 == 0:
-        print(f"Felcidades llegaste a {str(point)} puntos! :D")
+        print(f"Felcidades llegaste a {str(point)} puntos! 😎")
     elif point % 5 == 0:
-        print(f"Felcidades llegaste a {str(point)} puntos! :P")
+        print(f"Felcidades llegaste a {str(point)} puntos! 😁")
 
 bonus = sum(range(0, 500001, 2))
 print(f"Experciencia total acumulada: {bonus}")
