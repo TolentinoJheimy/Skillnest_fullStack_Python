@@ -5,8 +5,9 @@ class UsuarioStreaming:
         self.suscripcion = suscripcion
         self.lista_reproduccion = []
 
-    def agregar_a_lista(self, titulo):
+    def agregar_a_lista(self):
         """Agrega un contenido a la lista de reproducción del usuario."""
+        titulo = input("Introduce el título que deseas agregar a tu lista de reproducción: ")
         self.lista_reproduccion.append(titulo)
         print(f"{titulo} agregado a la lista de {self.nombre}.")
 
@@ -39,6 +40,8 @@ def crear_usuario():
 usuarios = []
 usuario = crear_usuario()
 usuarios.append(usuario)
-print(f"Usuario:{usuario.nombre}")
+usuario.agregar_a_lista()
+print(f"Lista de reproducción de {usuario.nombre}: {usuario.lista_reproduccion}")
+
 
 
