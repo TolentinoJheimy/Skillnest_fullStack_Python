@@ -84,6 +84,7 @@ def ejercicio4():
     else:
         print("Error: debes ingresar un número válido")
 ejercicio4()
+
 #5 Crear una función que reciba una lista de precios y aplique un aumento del 15%, mostrando el precio nuevo.
 
 #6 Crear una función que reciba un número entero y determine si es positivo, negativo o cero.
