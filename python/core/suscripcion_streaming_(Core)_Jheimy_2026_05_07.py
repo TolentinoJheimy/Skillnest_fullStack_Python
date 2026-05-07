@@ -37,39 +37,35 @@ class SuscripcionStreaming:
             print(f"{self.usuario} está viendo contenido exclusivo en plan {self.tipo_suscripcion}.")
 
     def mostrar_info_suscripcion(self):
-        print("----- Información de Suscripción -----")
+        print("Información de Suscripción:")
         print(f"Usuario: {self.usuario}")
         print(f"Tipo de suscripción: {self.tipo_suscripcion}")
         print(f"Costo mensual: ${self.costo_mensual}")
         print(f"Saldo pendiente: ${self.saldo_pendiente}")
-        print("-------------------------------------")
 
     def generar_cobro_mensual(self):
         """Simula el cobro mensual."""
         self.saldo_pendiente += self.costo_mensual
         print(f"{self.usuario} ha sido cobrado ${self.costo_mensual}. Saldo pendiente: ${self.saldo_pendiente}")
 
-
-# ===== PRUEBAS =====
-
 # Crear 3 usuarios
-usuario1 = SuscripcionStreaming("Ana", "Gratis")
+usuario1 = SuscripcionStreaming("Juan", "Gratis")
 usuario2 = SuscripcionStreaming("Luis", "Estándar")
-usuario3 = SuscripcionStreaming("Carla", "Premium")
+usuario3 = SuscripcionStreaming("Daniel", "Premium")
 
-# Generar cobros mensuales
+# Cobros mensuales
 usuario1.generar_cobro_mensual()
 usuario2.generar_cobro_mensual()
 usuario3.generar_cobro_mensual()
 
-print("\n--- PRUEBAS USUARIO 1 ---")
+print(f"\n - {usuario1.usuario}: ")
 usuario1.ver_contenido_exclusivo()
 usuario1.cambiar_suscripcion("Premium")
 usuario1.generar_cobro_mensual()
 usuario1.realizar_pago(15)
 usuario1.mostrar_info_suscripcion()
 
-print("\n--- PRUEBAS USUARIO 2 ---")
+print(f"\n - {usuario2.usuario}: ")
 usuario2.ver_contenido_exclusivo()
 usuario2.cambiar_suscripcion("Premium")
 usuario2.generar_cobro_mensual()
@@ -77,7 +73,7 @@ usuario2.realizar_pago(5)
 usuario2.realizar_pago(10)
 usuario2.mostrar_info_suscripcion()
 
-print("\n--- PRUEBAS USUARIO 3 ---")
-usuario3.realizar_pago(2)  # menor que el saldo
+print(f"\n - {usuario3.usuario}: ")
+usuario3.realizar_pago(2)
 usuario3.ver_contenido_exclusivo()
 usuario3.mostrar_info_suscripcion()
