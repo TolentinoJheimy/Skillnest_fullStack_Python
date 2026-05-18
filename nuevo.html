@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Tabla Usuarios</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #ececec;
+            padding: 6px 8px;
+        }
+
+        /* BOTÓN SUPERIOR */
+        .top {
+            width: 430px;
+            display: flex;
+            justify-content: end;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: white;
+            border: 4px solid black;
+            font-size: 18px;
+            padding: 3px 10px;
+            cursor: pointer;
+
+            /* sombra igual a la imagen */
+            box-shadow:
+                inset 0 0 0 1px white,
+                2px 2px 0 black;
+        }
+
+        /* TABLA */
+        table {
+            border-collapse: collapse;
+            width: 368px;
+            background: #ececec;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+            padding: 6px 6px;
+            font-size: 15px;
+            text-align: left;
+            color: black;
+        }
+
+        /* HEADERS */
+        th {
+            font-weight: normal;
+        }
+
+        /* ALTURAS */
+        tbody td {
+            height: 48px;
+            vertical-align: middle;
+        }
+
+        /* TAMAÑOS COLUMNAS */
+        .nombre {
+            width: 80px;
+        }
+
+        .email {
+            width: 175px;
+        }
+
+        .tipo {
+            width: 95px;
+        }
+
+        .acciones {
+            width: 70px;
+        }
+
+        /* ICONOS */
+        .iconos {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 30px;
+        }
+
+        .iconos i {
+            color: black;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .container{
+            width: 1350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <button class="btn">Nuevo Usuario</button>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th class="nombre">Nombre</th>
+                    <th class="email">E-mail</th>
+                    <th class="tipo">Tipo Usuario</th>
+                    <th class="acciones">Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Patricia</td>
+                    <td>patricia@codingdojo.com</td>
+                    <td>Admin</td>
+                    <td>
+                        <div class="iconos">
+                            <i class="bi bi-pencil-fill"></i>
+                            <i class="bi bi-trash"></i>
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Andrea</td>
+                    <td>andrea@codingdojo.com</td>
+                    <td>Usuario</td>
+                    <td>
+                        <div class="iconos">
+                            <i class="bi bi-pencil-fill"></i>
+                            <i class="bi bi-trash"></i>
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Katya</td>
+                    <td>katya@codingdojo.com</td>
+                    <td>Usuario</td>
+                    <td>
+                        <div class="iconos">
+                            <i class="bi bi-pencil-fill"></i>
+                            <i class="bi bi-trash"></i>
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+</body>
+
+</html>
