@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login y Registro</title>
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: #f2f2f2;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+    width: 950px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.formulario{
+    width: 40%;
+}
+
+h1{
+    font-size: 32px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.registro{
+    text-align: center;
+}
+
+.grupo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.grupo label{
+    width: 130px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.grupo input{
+    width: 120px;
+    height: 30px;
+    border: 3px solid black;
+    background: white;
+    outline: none;
+}
+
+button{
+    margin-top: 5px;
+    margin-left: 55px;
+    padding: 5px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 3px solid black;
+    background: white;
+    cursor: pointer;
+
+    /* sombra igual a la imagen */
+    box-shadow: 4px 4px 0px black;
+}
+
+button:hover{
+    background: #e5e5e5;
+}
+
+</style>
+</head>
+<body>
+
+<div class="contenedor">
+
+    <!-- Inicio de sesión -->
+    <div class="formulario">
+
+        <h1>Inicio de Sesión</h1>
+
+        <div class="grupo">
+            <label>E-mail</label>
+            <input type="email">
+        </div>
+
+        <div class="grupo">
+            <label>Contraseña</label>
+            <input type="password">
+        </div>
+
+        <button>Iniciar Sesión</button>
+
+    </div>
+
+    <!-- Registro -->
+    <div class="formulario">
+
+        <h1 class="registro">Registro</h1>
+
+        <div class="grupo">
+            <label>Nombre</label>
+            <input type="text">
+        </div>
+
+        <div class="grupo">
+            <label>E-mail</label>
+            <input type="email">
+        </div>
+
+        <div class="grupo">
+            <label>Contraseña</label>
+            <input type="password">
+        </div>
+
+        <div class="grupo">
+            <label>Conf. Contraseña</label>
+            <input type="password">
+        </div>
+
+        <button>Registrar</button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+<!--Me gusta la elisa (Y el problema??)  -->
+<!-- Que ella te va a poneruna putisima orden de alejamiento. -->
