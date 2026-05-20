@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla Usuarios</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+
+    body{
+        margin:0;
+        padding:40px;
+        background:#f2f2f2;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .tabla-contenedor{
+        width: 390px;
+        margin:auto;
+    }
+
+    table{
+        width:100%;
+        border-collapse: collapse;
+        background:#dcdcdc;
+        border:3px solid #222;
+    }
+
+    th{
+        background:#cfcfcf;
+        font-size:18px;
+        font-weight:bold;
+        color:#222;
+        border-right:3px solid #222;
+        border-bottom:3px solid #222;
+        padding:8px 6px;
+        text-align:left;
+    }
+
+    th:last-child{
+        border-right:none;
+        text-align:center;
+    }
+
+    td{
+        font-size:16px;
+        color:#222;
+        padding:14px 6px;
+        border-right:3px solid #222;
+    }
+
+    td:last-child{
+        border-right:none;
+        text-align:center;
+    }
+
+    tr:nth-child(even){
+        background:#e9e9e9;
+    }
+
+    .accion-icono{
+        font-size:30px;
+        color:#222;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="tabla-contenedor">
+
+    <table>
+
+        <tr>
+            <th>Nombre</th>
+            <th>E-mail</th>
+            <th>Tipo Usuario</th>
+            <th>Acciones</th>
+        </tr>
+
+        <tr>
+            <td>Patricia</td>
+            <td>patricia@codingdojo.com</td>
+            <td>Admin</td>
+            <td><i class="bi bi-envelope accion-icono"></i></td>
+        </tr>
+
+        <tr>
+            <td>Andrea</td>
+            <td>andrea@codingdojo.com</td>
+            <td>Usuario</td>
+            <td><i class="bi bi-envelope accion-icono"></i></td>
+        </tr>
+
+        <tr>
+            <td>Katya</td>
+            <td>katya@codingdojo.com</td>
+            <td>Usuario</td>
+            <td><i class="bi bi-envelope accion-icono"></i></td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
