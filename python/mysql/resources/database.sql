@@ -128,5 +128,70 @@ VALUES ("akon1234", "akonakon1232", "akon@gmail.com", 1),
 ("camilo", "caaaamilo", "camilo@gmail.com", 3),
 ("JuanP", "juan2345", "juan@gmail.com", 2),
 ("yoycer", "yonaiker123", "yoycer@gmail.com", 1);
-INSERT INTO comentarios()
-VALUES();
+INSERT INTO comentarios(contenido, created_by, id_usuario)
+VALUES("Hola este es un comentario creado por Akon!!", 1, 1),
+("Hola este es un comentario creado por randy!!", 2, 2),
+("Hola este es un comentario creado por Camilo!!", 3, 3);
+SELECT * FROM comentarios;
+
+INSERT INTO mensajes(contenido, created_by, emisor, receptor)
+VALUES ("Holaaa yoycer", 1, 1, 5),
+("Hola juan,juegas futbol?", 3, 3,4),
+("Yoycer juguemos futbol", 2, 2, 5 );
+
+SELECT * FROM mensajes;
+
+
+-- Consultas simples con condición.
+-- where en mysql
+-- Mostrar mensajes donde el remitente sea randy
+SELECT contenido, emisor
+FROM mensajes
+WHERE emisor = 2; -- WHERE aplica condición sobre consulta
+
+
+-- Mostrar usuarios que estan activos (DELETE 0 )
+SELECT nombre_usuario, email, id_rol, deleted
+FROM usuarios
+WHERE deleted = 0; 
+
+
+-- Mostrar usuario eliminado
+SELECT nombre_usuario, email, id_rol, deleted
+FROM usuarios
+WHERE deleted = 1; 
+
+-- Borrar un usuario
+UPDATE usuarios
+SET deleted = 1
+WHERE id_usuario = 2 OR id_usuario = 4;
+
+-- Recuperar usuario
+UPDATE usuarios
+SET deleted = 0
+WHERE id_usuario = 1 OR id_usuario = 5;
+
+
+-- Tarea 
+-- Mostrar roles de usuario 
+SELECT nombre_rol, descripcion_rol
+FROM roles
+WHERE deleted = 0;
+-- Eliminar 2 roles de usuario 
+UPDATE roles
+SET deleted = 1
+WHERE id_rol = 1 OR id_rol = 3;
+-- Mostrar eliminados
+SELECT nombre_rol, descripcion_rol
+FROM roles
+WHERE deleted = 1;
+-- Recuperar 1 rol de usuario 
+UPDATE roles
+SET deleted = 0
+WHERE id_rol = 1;
+-- Mostrar rol recuperado
+SELECT nombre_rol, descripcion_rol
+FROM roles
+WHERE deleted = 0;
+
+
