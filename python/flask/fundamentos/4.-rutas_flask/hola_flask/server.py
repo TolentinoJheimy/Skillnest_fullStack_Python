@@ -32,9 +32,6 @@ def despedir(nombre):
 def presentacion(nombre, edad):
     return f"<h1>Hola {nombre}, tienes {edad} años."
 
-@app.route("/suma/<int:a>/<int:b>")
-def suma(num1, num2):
-    return f"<h1>Hola la suma es {num1 + num2}"
 
 if __name__ == "__main__":
     app.run(debug=True)
