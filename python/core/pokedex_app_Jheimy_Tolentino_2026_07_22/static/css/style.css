@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+
+.header {
+    text-align: center;
+    padding: 25px 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    font-size: 30px;
+}
+
+.logo h1 {
+    margin: 0;
+    color: #3158c9;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.header p {
+    margin: 5px 0 15px;
+    color: #444;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+}
+
+
+.pokemon-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.pokemon-image {
+    height: 150px;
+    background: linear-gradient(
+        135deg,
+        #eef2f7,
+        #d7e1f1
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.pokemon-image img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+}
+
+.numero {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    background: #555;
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+
+.pokemon-info {
+    padding: 12px;
+}
+
+.pokemon-info h3 {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 0 7px;
+}
+
+
+.tipos {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+
+.tipo {
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+.tipo-planta {
+    background-color: #5acb4a;
+}
+
+
+.tipo-veneno {
+    background-color: #a040a0;
+}
+
+
+.tipo-fuego {
+    background-color: #f08030;
+}
+
+
+.tipo-agua {
+    background-color: #6890f0;
+}
+
+
+.tipo-electrico {
+    background-color: #f8d030;
+    color: #333;
+}
+
+
+.tipo-normal {
+    background-color: #a8a878;
+}
+
+
+.tipo-hada {
+    background-color: #ee99ac;
+}
+
+
+.tipo-fantasma {
+    background-color: #705898;
+}
+
+.tipo-roca {
+    background-color: #b8a038;
+}
+
+
+.tipo-tierra {
+    background-color: #e0c068;
+    color: #333;
+}
+
+.poder-titulo {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.barra {
+    height: 8px;
+    background: #e5e7e9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    background: #465bd4;
+    border-radius: 10px;
+}
+
+.poder small {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+}
+
+
+.datos {
+    display: flex;
+    justify-content: space-around;
+    margin: 12px 0;
+}
+
+.datos div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.datos span {
+    font-size: 10px;
+    color: #777;
+}
+
+.datos strong {
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+.detalle {
+    display: block;
+
+    border: 1px solid #75a9ff;
+    color: #3478e5;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    padding: 5px;
+
+    border-radius: 3px;
+
+    transition: 0.2s;
+}
+
+.detalle:hover {
+    background: #3478e5;
+    color: white;
+}
+
+
+.error-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+}
+.error-container .mensaje{
+    width: 500px;
+}
+.error-card .mensaje-auto{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.error-card .mensaje-mal{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.error-card h1 {
+    color: #3158c9;
+    font-weight: bolder;
+}
+
+.error-card p {
+    color: #666;
+}
+
+
+@media (max-width: 800px) {
+
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .pokemon-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
