@@ -18,7 +18,8 @@
 
         <header class="header">
             <div class="logo">
-                <span></span>
+                <span><img src="{{ url_for('static', filename='images/pokebola.png') }}" alt="Logo Pokébola"
+                    style="width: 38px;"></span>
                 <h1>Pokédex</h1>
             </div>
 
@@ -26,11 +27,11 @@
 
             <div class="botones">
                 <a href="/pokemon" class="btn btn-primary">
-                    ☰ Ver todos
+                    <i class="fa-solid fa-list"></i> Ver todos
                 </a>
 
                 <a href="/pokemon/cantidad/5" class="btn btn-success">
-                    ▼ Ver 5 primeros
+                    <i class="fa-solid fa-caret-down"></i> Ver 5 primeros
                 </a>
             </div>
         </header>
@@ -90,12 +91,12 @@
                     <div class="datos">
 
                         <div>
-                            <span>↕ Altura</span>
+                            <span><i class="fa-solid fa-ruler-vertical"></i> Altura</span>
                             <strong>{{ pokemon.altura }}</strong>
                         </div>
 
                         <div>
-                            <span>⚖ Peso</span>
+                            <span><i class="fa-solid fa-weight-hanging"></i> Peso</span>
                             <strong>{{ pokemon.peso }}</strong>
                         </div>
 
