@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plataformas Digitales</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container py-5">
+
+        <!-- ===================== -->
+        <!-- TITULO                -->
+        <!-- ===================== -->
+
+        <div class="titulo-container">
+
+            <h1>
+
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+
+                Plataformas Digitales
+
+            </h1>
+
+            <p>
+
+                Visualización de datos de las principales plataformas digitales
+
+            </p>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- FILTROS               -->
+        <!-- ===================== -->
+
+        <div class="card filtros shadow">
+
+            <div class="card-body">
+
+                <h5>
+
+                    <i class="bi bi-funnel-fill"></i>
+
+                    Filtros y Ordenamiento
+
+                </h5>
+
+                <div class="row mt-4">
+
+                    <div class="col-lg-4">
+
+                        <label class="form-label">
+
+                            Filtrar por país
+
+                        </label>
+
+                        <select id="filtroPais" class="form-select">
+
+                            <option value="Todos">
+                                Todos los países
+                            </option>
+
+                            <option value="EE.UU.">
+                                EE.UU.
+                            </option>
+
+                            <option value="Suecia">
+                                Suecia
+                            </option>
+
+                            <option value="China">
+                                China
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <label class="form-label">
+
+                            Ordenar por
+
+                        </label>
+
+                        <select id="orden" class="form-select">
+
+                            <option value="nombre">
+                                Nombre
+                            </option>
+
+                            <option value="usuarios">
+                                Usuarios
+                            </option>
+
+                            <option value="fundado">
+                                Año Fundación
+                            </option>
+
+                            <option value="pais">
+                                País
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <label class="form-label">
+
+                            Dirección
+
+                        </label>
+
+                        <select id="direccion" class="form-select">
+
+                            <option value="asc">
+                                Ascendente
+                            </option>
+
+                            <option value="desc">
+                                Descendente
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================== -->
+        <!-- TABLA                 -->
+        <!-- ===================== -->
+
+        <div class="card tabla-card shadow-lg">
+
+            <div class="card-body p-0">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle" id="tabla">
+
+                        <thead>
+
+                            <tr>
+
+                                <th width="32%">Nombre</th>
+
+                                <th width="18%">Usuarios</th>
+
+                                <th width="18%">Año Fundación</th>
+
+                                <th width="18%">País</th>
+
+                                <th width="14%">Detalles</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            {% if datos %}
+
+                            {% for plataforma in datos %}
+
+                            <tr data-pais="{{ plataforma.pais }}">
+
+                                <td>
+
+                                    <div class="nombre-plataforma">
+
+                                        <div class="icono-plataforma" style="background: {{ plataforma.color }}20;">
+
+                                            <i class="bi {{ plataforma.icono }}" style="color: {{ plataforma.color }};">
+                                            </i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+
+                                                {{ plataforma.nombre }}
+
+                                            </strong>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-usuarios">
+
+                                        {{ plataforma.usuarios }}
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    {{ plataforma.fundado }}
+
+                                </td>
+
+                                <td>
+
+                                    <span class="badge badge-pais">
+
+                                        {{ plataforma.pais }}
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <a href="{{ url_for('detalle', id=plataforma.id) }}"
+                                        class="btn btn-info btn-detalle">
+
+                                        <i class="bi bi-info-circle-fill"></i>
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                            {% else %}
+
+                            <tr>
+
+                                <td colspan="5">
+
+                                    <div class="alert alert-warning m-3 text-center">
+
+                                        <i class="bi bi-exclamation-triangle-fill"></i>
+
+                                        No existen plataformas registradas.
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                            {% endif %}
+
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr>
+
+                                <td colspan="5">
+
+                                    <div class="tabla-footer">
+
+                                        <div>
+
+                                            <i class="bi bi-database-fill"></i>
+
+                                            Mostrando
+
+                                            <strong id="contador">
+
+                                                {{ total }}
+
+                                            </strong>
+
+                                            plataformas
+
+                                        </div>
+
+                                        <div>
+
+                                            <i class="bi bi-check-circle-fill text-success"></i>
+
+                                            Datos actualizados
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ===================== -->
+        <!-- FOOTER                -->
+        <!-- ===================== -->
+
+        <footer class="footer mt-4">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <i class="bi bi-c-circle"></i>
+
+                    2026 • Tabla de Plataformas Digitales
+
+                </div>
+
+                <div class="col-md-6 text-md-end">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    Desarrollado con Flask + Bootstrap 5
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- Bootstrap JS          -->
+    <!-- ===================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ===================== -->
+    <!-- JavaScript propio     -->
+    <!-- ===================== -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
