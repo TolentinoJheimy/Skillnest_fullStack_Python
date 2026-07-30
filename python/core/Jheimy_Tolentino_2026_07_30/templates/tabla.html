@@ -23,10 +23,6 @@
 
     <div class="container py-5">
 
-        <!-- ===================== -->
-        <!-- TITULO                -->
-        <!-- ===================== -->
-
         <div class="titulo-container">
 
             <h1>
@@ -44,10 +40,6 @@
             </p>
 
         </div>
-
-        <!-- ===================== -->
-        <!-- FILTROS               -->
-        <!-- ===================== -->
 
         <div class="card filtros shadow">
 
@@ -151,10 +143,6 @@
 
         </div>
 
-        <!-- ===================== -->
-        <!-- TABLA                 -->
-        <!-- ===================== -->
-
         <div class="card tabla-card shadow-lg">
 
             <div class="card-body p-0">
@@ -192,10 +180,19 @@
 
                                     <div class="nombre-plataforma">
 
-                                        <div class="icono-plataforma" style="background: {{ plataforma.color }}20;">
+                                        <div class="icono-plataforma">
 
-                                            <i class="bi {{ plataforma.icono }}" style="color: {{ plataforma.color }};">
+                                            {% if plataforma.logo %}
+
+                                            <img src="{{ url_for('static', filename='images/' + plataforma.logo) }}"
+                                                class="logo-netflix">
+
+                                            {% else %}
+
+                                            <i class="bi {{ plataforma.icono }}" style="color:{{ plataforma.color }}">
                                             </i>
+
+                                            {% endif %}
 
                                         </div>
 
@@ -209,11 +206,11 @@
 
                                         </div>
 
-                                    </div>
-
+                                        
                                 </td>
 
                                 <td>
+                                    </div>
 
                                     <span class="badge badge-usuarios">
 
@@ -241,10 +238,12 @@
 
                                 <td>
 
-                                    <a href="{{ url_for('detalle', id=plataforma.id) }}"
-                                        class="btn btn-info btn-detalle">
+                                    <button class="btn btn-info btn-detalle" data-bs-toggle="modal"
+                                        data-bs-target="#modal{{ plataforma.id }}">
 
                                         <i class="bi bi-info-circle-fill"></i>
+
+                                    </button>
 
                                     </a>
 
@@ -282,11 +281,10 @@
 
                                 <td colspan="5">
 
-                                    <div class="tabla-footer">
+                                    <div class="tabla-footer" style="display: flex; justify-content: flex-end;">
 
                                         <div>
 
-                                            <i class="bi bi-database-fill"></i>
 
                                             Mostrando
 
@@ -300,13 +298,7 @@
 
                                         </div>
 
-                                        <div>
 
-                                            <i class="bi bi-check-circle-fill text-success"></i>
-
-                                            Datos actualizados
-
-                                        </div>
 
                                     </div>
 
@@ -323,27 +315,20 @@
             </div>
 
         </div>
-        <!-- ===================== -->
-        <!-- FOOTER                -->
-        <!-- ===================== -->
 
-        <footer class="footer mt-4">
+        <footer class="footer mt-4" style="display: flex; justify-content:center;">
 
-            <div class="row">
+            <div class="row" style="display: flex; flex-direction: column;">
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-xl-12 fs-6">
 
-                    <i class="bi bi-c-circle"></i>
-
-                    2026 • Tabla de Plataformas Digitales
+                    Visualización de datos desarrollada con Flask y Bootstrap.
 
                 </div>
 
-                <div class="col-md-6 text-md-end">
+                <div class="col-md-6 col-xl-12 mt-4 ">
 
-                    <i class="bi bi-code-slash"></i>
-
-                    Desarrollado con Flask + Bootstrap 5
+                    Los datos mostrados son ficticios para fines educativos.
 
                 </div>
 
@@ -353,15 +338,7 @@
 
     </div>
 
-    <!-- ===================== -->
-    <!-- Bootstrap JS          -->
-    <!-- ===================== -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- ===================== -->
-    <!-- JavaScript propio     -->
-    <!-- ===================== -->
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 

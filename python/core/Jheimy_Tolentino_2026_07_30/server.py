@@ -2,9 +2,6 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# ============================
-# Base de datos ficticia
-# ============================
 
 datos = [
     {
@@ -14,6 +11,7 @@ datos = [
         "fundado": 2015,
         "pais": "EE.UU.",
         "icono": "bi-discord",
+        "logo":None,
         "color": "#5865F2",
         "descripcion": "Plataforma de comunicación para comunidades y videojuegos."
     },
@@ -24,6 +22,7 @@ datos = [
         "fundado": 2010,
         "pais": "EE.UU.",
         "icono": "bi-instagram",
+        "logo":None,
         "color": "#E4405F",
         "descripcion": "Red social para compartir fotografías y videos."
     },
@@ -34,6 +33,7 @@ datos = [
         "fundado": 1997,
         "pais": "EE.UU.",
         "icono": "bi-film",
+        "logo":"netflix.png",
         "color": "#E50914",
         "descripcion": "Servicio de streaming de películas y series."
     },
@@ -44,6 +44,7 @@ datos = [
         "fundado": 2006,
         "pais": "Suecia",
         "icono": "bi-spotify",
+        "logo":None,
         "color": "#1DB954",
         "descripcion": "Servicio de música y podcasts en streaming."
     },
@@ -54,6 +55,7 @@ datos = [
         "fundado": 2016,
         "pais": "China",
         "icono": "bi-tiktok",
+        "logo":"tiktok.png",
         "color": "#000000",
         "descripcion": "Plataforma de videos cortos."
     },
@@ -64,6 +66,7 @@ datos = [
         "fundado": 2011,
         "pais": "EE.UU.",
         "icono": "bi-twitch",
+        "logo":None,
         "color": "#9146FF",
         "descripcion": "Plataforma de transmisiones en vivo."
     },
@@ -74,14 +77,12 @@ datos = [
         "fundado": 2005,
         "pais": "EE.UU.",
         "icono": "bi-youtube",
+        "logo":None,
         "color": "#FF0000",
         "descripcion": "La plataforma de videos más utilizada del mundo."
     }
 ]
 
-# ============================
-# Ruta principal
-# ============================
 
 @app.route("/")
 def inicio():
@@ -91,9 +92,6 @@ def inicio():
         total=len(datos)
     )
 
-# ============================
-# Ruta de la práctica
-# ============================
 
 @app.route("/tabla")
 def tabla():
@@ -103,26 +101,10 @@ def tabla():
         total=len(datos)
     )
 
-# ============================
-# Página de detalle
-# ============================
 
-@app.route("/detalle/<int:id>")
-def detalle(id):
 
-    plataforma = next(
-        (p for p in datos if p["id"] == id),
-        None
-    )
 
-    return render_template(
-        "detalle.html",
-        plataforma=plataforma
-    )
 
-# ============================
-# Ejecutar servidor
-# ============================
 
 if __name__ == "__main__":
     app.run(
