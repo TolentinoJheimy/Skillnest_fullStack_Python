@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Plataformas Digitales</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,8 +21,7 @@
 
 <body>
 
-    <div class="container py-5">
-
+    <div class="container px-5 py-5">
         <div class="titulo-container">
 
             <h1>
@@ -155,7 +154,7 @@
 
                             <tr>
 
-                                <th width="32%">Nombre</th>
+                                <th width="32%">Nombre <i class="fa-solid fa-caret-down" style="color: #ffff;"></i></th>
 
                                 <th width="18%">Usuarios</th>
 
@@ -206,135 +205,135 @@
 
                                         </div>
 
-                                        
-                                </td>
-
-                                <td>
-                                    </div>
-
-                                    <span class="badge badge-usuarios">
-
-                                        {{ plataforma.usuarios }}
-
-                                    </span>
 
                                 </td>
 
                                 <td>
-
-                                    {{ plataforma.fundado }}
-
-                                </td>
-
-                                <td>
-
-                                    <span class="badge badge-pais">
-
-                                        {{ plataforma.pais }}
-
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <button class="btn btn-info btn-detalle" data-bs-toggle="modal"
-                                        data-bs-target="#modal{{ plataforma.id }}">
-
-                                        <i class="bi bi-info-circle-fill"></i>
-
-                                    </button>
-
-                                    </a>
-
-                                </td>
-
-                            </tr>
-
-                            {% endfor %}
-
-                            {% else %}
-
-                            <tr>
-
-                                <td colspan="5">
-
-                                    <div class="alert alert-warning m-3 text-center">
-
-                                        <i class="bi bi-exclamation-triangle-fill"></i>
-
-                                        No existen plataformas registradas.
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                            {% endif %}
-
-                        </tbody>
-
-                        <tfoot>
-
-                            <tr>
-
-                                <td colspan="5">
-
-                                    <div class="tabla-footer" style="display: flex; justify-content: flex-end;">
-
-                                        <div>
-
-
-                                            Mostrando
-
-                                            <strong id="contador">
-
-                                                {{ total }}
-
-                                            </strong>
-
-                                            plataformas
-
-                                        </div>
-
-
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tfoot>
-
-                    </table>
-
                 </div>
+
+                <span class="badge badge-usuarios">
+
+                    {{ plataforma.usuarios }}
+
+                </span>
+
+                </td>
+
+                <td>
+
+                    {{ plataforma.fundado }}
+
+                </td>
+
+                <td>
+
+                    <span class="badge badge-pais">
+
+                        {{ plataforma.pais }}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <button class="btn btn-info btn-detalle" data-bs-toggle="modal"
+                        data-bs-target="#modal{{ plataforma.id }}">
+
+                        <i class="bi bi-info-circle-fill"></i>
+
+                    </button>
+
+                    </a>
+
+                </td>
+
+                </tr>
+
+                {% endfor %}
+
+                {% else %}
+
+                <tr>
+
+                    <td colspan="5">
+
+                        <div class="alert alert-warning m-3 text-center">
+
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+
+                            No existen plataformas registradas.
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endif %}
+
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+
+                        <td colspan="5">
+
+                            <div class="tabla-footer" style="display: flex; justify-content: flex-end;">
+
+                                <div>
+
+
+                                    Mostrando
+
+                                    <strong id="contador">
+
+                                        {{ total }}
+
+                                    </strong>
+
+                                    plataformas
+
+                                </div>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tfoot>
+
+                </table>
 
             </div>
 
         </div>
 
-        <footer class="footer mt-4" style="display: flex; justify-content:center;">
+    </div>
 
-            <div class="row" style="display: flex; flex-direction: column;">
 
-                <div class="col-md-6 col-xl-12 fs-6">
 
-                    Visualización de datos desarrollada con Flask y Bootstrap.
+    <footer class="footer mt-4" style="display: flex; justify-content:center;">
 
-                </div>
+        <div class="row" style="display: flex; flex-direction: column;">
 
-                <div class="col-md-6 col-xl-12 mt-4 ">
+            <div class="col-md-6 col-xl-12 fs-6">
 
-                    Los datos mostrados son ficticios para fines educativos.
-
-                </div>
+                Visualización de datos desarrollada con Flask y Bootstrap.
 
             </div>
 
-        </footer>
+            <div class="col-md-6 col-xl-12 mt-4 ">
+
+                Los datos mostrados son ficticios para fines educativos.
+
+            </div>
+
+        </div>
+
+    </footer>
 
     </div>
 

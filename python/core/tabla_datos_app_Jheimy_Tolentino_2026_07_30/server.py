@@ -22,7 +22,7 @@ datos = [
         "fundado": 2010,
         "pais": "EE.UU.",
         "icono": "bi-instagram",
-        "logo":None,
+        "logo":"instagram.png",
         "color": "#E4405F",
         "descripcion": "Red social para compartir fotografías y videos."
     },

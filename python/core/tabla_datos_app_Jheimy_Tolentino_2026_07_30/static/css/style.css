@@ -14,12 +14,14 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
+
 }
+
 
 .titulo-container {
     text-align: center;
-    margin-bottom: 35px;
+    margin: 35px 0px 35px 0;
 }
 
 .titulo-container h1 {
@@ -86,12 +88,19 @@ body {
 }
 
 .table {
-    margin: 0;
+    width: calc(100% - 24px);
+    margin: 0 auto;
 }
 
-.table thead {
-    background: #212529;
+#tabla thead th {
+    background-color: #252626 !important;
     color: white;
+
+}
+
+.table thead th:first-child {
+    text-align: left;
+    padding-left: 28px;
 }
 
 .table thead th {
@@ -105,7 +114,7 @@ body {
 .table tbody td {
     text-align: center;
     vertical-align: middle;
-    padding: 18px;
+    padding: 24px 18px;
     border-color: #edf2f7;
 }
 
@@ -133,8 +142,8 @@ body {
 }
 
 .icono-plataforma {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -143,7 +152,7 @@ body {
 }
 
 .icono-plataforma i {
-    font-size: 22px;
+    font-size: 42px;
 }
 
 .table tbody tr:hover .icono-plataforma {
@@ -186,8 +195,8 @@ body {
 }
 
 .btn-detalle {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,11 +265,11 @@ body {
     font-weight: 500;
 }
 
-.logo-netflix{
+.logo-netflix {
 
-    width: 32x;
+    width: 42px;
 
-    height: 32px;
+    height: 42px;
 
     object-fit: contain;
 
@@ -268,6 +277,7 @@ body {
 
 .table-responsive {
     overflow-x: auto;
+    padding: 12px 12px;
 }
 
 .table-responsive::-webkit-scrollbar {
