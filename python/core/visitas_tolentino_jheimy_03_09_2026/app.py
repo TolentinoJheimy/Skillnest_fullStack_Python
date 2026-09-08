@@ -1,5 +1,3 @@
-"""Aplicación Flask para practicar el manejo de datos en sesión."""
-
 import os
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
