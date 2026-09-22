@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/style.css') }}">
+</head>
+<body>
+
+    <h1>Agregar nueva mascota</h1>
+    <div class="formulario">
+        <form action="/crear_mascota" method="POST">
+            <div>
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required>
+            </div>
+            <div>
+                <label>Tipo:</label>
+                <input type="text" name="tipo" required>
+            </div>
+            <div>
+                <label>Color:</label>
+                <input type="text" name="color" required>
+            </div>
+            <button type="submit">Guardar Mascota</button>
+        </form>
+    </div>
+
+    <h1>Lista de Mascotas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for m in mascotas %}
+            <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.nombre }}</td>
+                <td>{{ m.tipo }}</td>
+                <td>{{ m.color }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
