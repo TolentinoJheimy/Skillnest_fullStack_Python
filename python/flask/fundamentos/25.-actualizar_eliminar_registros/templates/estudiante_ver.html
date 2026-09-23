@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="mb-4">Estudiante #{{ estudiante.id_estudiante }}</h1>
+                <div class="card p-4 shadow-sm mb-4">
+                    <p><strong>Nombre:</strong> {{ estudiante.nombre }}</p>
+                    <p><strong>E-mail:</strong> {{ estudiante.email }}</p>
+                    <p><strong>Registrado:</strong> {{ estudiante.created_at }}</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="{{ url_for('editar_estudiante', id_estudiante=estudiante.id_estudiante) }}"
+                        class="btn btn-warning text-white">Editar</a>
+                    <a href="{{ url_for('estudiantes') }}" class="btn btn-secondary">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
