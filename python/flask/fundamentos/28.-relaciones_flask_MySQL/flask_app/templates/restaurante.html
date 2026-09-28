@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ restaurante.nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="page-header">
+            <div>
+                <h1>{{ restaurante.nombre }}</h1>
+                <p class="text-muted">Especialidades de la casa disponibles.</p>
+            </div>
+            <div>
+                <a href="{{ url_for('restaurantes') }}" class="btn btn-outline-secondary">Atrás a Restaurantes</a>
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Crear Nuevo Taco</a>
+            </div>
+        </div>
+
+        {% if restaurante.tacos %}
+        <div class="row g-4">
+            {% for taco in restaurante.tacos %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card taco-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h5 text-primary mb-3">Taco #{{ taco.id }}</h2>
+                        <p class="mb-2"><strong>Tipo de Tortilla:</strong> {{ taco.tortilla }}</p>
+                        <p class="mb-2"><strong>Guiso / Relleno:</strong> {{ taco.guiso }}</p>
+                        <p class="mb-0"><strong>Salsa Acompañante:</strong> {{ taco.salsa }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-warning">Este restaurante todavía no cuenta con variedades de tacos registrados.</div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

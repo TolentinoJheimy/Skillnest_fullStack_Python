@@ -1,0 +1,48 @@
+/* Modifica el estilo general del fondo y la tipografía base de la app */
+body {
+    background-color: #f5f6f8;
+    color: #212529;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fuerza un peso tipográfico más robusto para los títulos principales */
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* Suaviza las esquinas de los contenedores tipo tarjeta */
+.card {
+    border-radius: 10px;
+}
+
+/* Modifica el radio de borde de las cajas de entrada de texto */
+.form-control {
+    border-radius: 7px;
+}
+
+/* Homologa el aspecto visual redondeado en todos los botones del sistema */
+.btn {
+    border-radius: 7px;
+}
+
+/* Alinea verticalmente al centro el contenido de las celdas de las tablas */
+.table {
+    vertical-align: middle;
+}
+
+/* Evita que los encabezados de las columnas se quiebren en múltiples líneas */
+.table th {
+    white-space: nowrap;
+}
+
+/* Define esquinas redondeadas personalizadas para los contenedores de mensajes flash() */
+.alert {
+    border-radius: 8px;
+}
+
+/* Rompe la estructura rígida de bloques en pantallas móviles pequeñas */
+@media (max-width: 576px) {
+    .d-flex {
+        flex-wrap: wrap;
+    }
+}
