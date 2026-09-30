@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuevo Estudiante</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="formulario-contenedor">
+
+        <h1>Nuevo Estudiante</h1>
+
+        <form action="/estudiante/crear" method="POST">
+
+            <div class="campo">
+
+                <label for="curso_id">
+                    Curso:
+                </label>
+
+                <select
+                    name="curso_id"
+                    id="curso_id"
+                    required
+                >
+
+                    <option value="">
+                        Selecciona un curso
+                    </option>
+
+                    {% for curso in cursos %}
+
+                        <option value="{{ curso.id }}">
+                            {{ curso.nombre }}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="nombre">
+                    Nombre:
+                </label>
+
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="apellido">
+                    Apellido:
+                </label>
+
+                <input
+                    type="text"
+                    name="apellido"
+                    id="apellido"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="edad">
+                    Edad:
+                </label>
+
+                <input
+                    type="number"
+                    name="edad"
+                    id="edad"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                Crear
+            </button>
+
+        </form>
+
+
+        <a href="/cursos" class="inicio">
+            Inicio
+        </a>
+
+    </div>
+
+</body>
+
+</html>

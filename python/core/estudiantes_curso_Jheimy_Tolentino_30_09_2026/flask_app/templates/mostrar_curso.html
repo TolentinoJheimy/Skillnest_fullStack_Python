@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ curso.nombre }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="tabla-contenedor">
+
+        <h1>
+            Estudiantes de {{ curso.nombre }}
+        </h1>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for estudiante in estudiantes %}
+
+                    <tr>
+
+                        <td>
+                            {{ estudiante.nombre }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.apellido }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.edad }}
+                        </td>
+
+                    </tr>
+
+                {% else %}
+
+                    <tr>
+
+                        <td colspan="3">
+                            No hay estudiantes en este curso.
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        <a href="/cursos" class="inicio">
+            Inicio
+        </a>
+
+    </div>
+
+</body>
+
+</html>
