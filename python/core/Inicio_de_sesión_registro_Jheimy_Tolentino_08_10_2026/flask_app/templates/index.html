@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inicio</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <main>
+            <div class="columns">
+                <section aria-labelledby="registro_titulo">
+                    <h1 id="registro_titulo">Registro</h1>
+
+                    {% for message in get_flashed_messages(category_filter=['registro_error']) %}
+                        <p class="error" role="alert">{{ message }}</p>
+                    {% endfor %}
+
+                    <form method="post" action="{{ url_for('register') }}" class="auth-form">
+                        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+                        <label for="nombre">Nombre</label>
+                        <input
+                            id="nombre"
+                            name="nombre"
+                            value="{{ form.get('nombre', '') }}"
+                            minlength="2"
+                            maxlength="80"
+                            autocomplete="given-name"
+                            required
+                        >
+
+                        <label for="apellido">Apellido</label>
+                        <input
+                            id="apellido"
+                            name="apellido"
+                            value="{{ form.get('apellido', '') }}"
+                            minlength="2"
+                            maxlength="80"
+                            autocomplete="family-name"
+                            required
+                        >
+
+                        <label for="registro_email">E-mail</label>
+                        <input
+                            id="registro_email"
+                            type="email"
+                            name="email"
+                            value="{{ form.get('email', '') }}"
+                            maxlength="254"
+                            autocomplete="email"
+                            required
+                        >
+
+                        <label for="registro_password">Contraseña</label>
+                        <input
+                            id="registro_password"
+                            type="password"
+                            name="password"
+                            minlength="8"
+                            maxlength="128"
+                            autocomplete="new-password"
+                            aria-describedby="password_help"
+                            required
+                        >
+                        <p id="password_help" class="form-help">
+                            Mínimo 8 caracteres, una mayúscula y un número.
+                        </p>
+
+                        <label for="confirm_password">Conf. Contraseña</label>
+                        <input
+                            id="confirm_password"
+                            type="password"
+                            name="confirm_password"
+                            minlength="8"
+                            maxlength="128"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                        <input
+                            id="fecha_nacimiento"
+                            type="date"
+                            name="fecha_nacimiento"
+                            value="{{ form.get('fecha_nacimiento', '') }}"
+                            max="{{ max_birthdate }}"
+                            autocomplete="bday"
+                            aria-describedby="nacimiento_help"
+                            required
+                        >
+                        <p id="nacimiento_help" class="form-help">
+                            Debes tener 18 años o más para registrarte.
+                        </p>
+
+                        <label for="interes">Interés</label>
+                        <select id="interes" name="interes" required>
+                            <option value="">Selecciona un interés</option>
+                            {% for interes in ['Python', 'Desarrollo web', 'Bases de datos'] %}
+                                <option
+                                    value="{{ interes }}"
+                                    {% if form.get('interes') == interes %}selected{% endif %}
+                                >
+                                    {{ interes }}
+                                </option>
+                            {% endfor %}
+                        </select>
+
+                        <button type="submit">Registrar</button>
+                    </form>
+                </section>
+
+                <section aria-labelledby="login_titulo">
+                    <h2 id="login_titulo">Inicio de Sesión</h2>
+
+                    {% for message in get_flashed_messages(category_filter=['login_error']) %}
+                        <p class="error" role="alert">{{ message }}</p>
+                    {% endfor %}
+
+                    <form method="post" action="{{ url_for('login') }}" class="auth-form">
+                        <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+                        <label for="login_email">E-mail</label>
+                        <input
+                            id="login_email"
+                            type="email"
+                            name="email"
+                            autocomplete="email"
+                            maxlength="254"
+                            required
+                        >
+
+                        <label for="login_password">Contraseña</label>
+                        <input
+                            id="login_password"
+                            type="password"
+                            name="password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button type="submit">Iniciar Sesión</button>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

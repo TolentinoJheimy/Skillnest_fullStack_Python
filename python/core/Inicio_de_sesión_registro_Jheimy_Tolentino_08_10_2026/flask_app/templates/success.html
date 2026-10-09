@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bienvenido</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+
+    <body>
+        <main>
+            <section class="welcome">
+                <h1>¡Hola {{ user.nombre }}!</h1>
+
+                <form method="post" action="{{ url_for('logout') }}">
+                    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+                    <button class="logout" type="submit">Cerrar Sesión</button>
+                </form>
+
+                {% for message in get_flashed_messages(category_filter=['success']) %}
+                    <p class="success" role="status">{{ message }}</p>
+                {% endfor %}
+            </section>
+        </main>
+    </body>
+</html>
